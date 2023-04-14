@@ -20,11 +20,11 @@ public class wsEmployee {
 
     @GetMapping(value = "/employees")
     public ResponseEntity <List<Employee>>getEmployees(){
-        List<Employee> employees = employeeService.employees();
+        List<Employee> employees = employeeService.getAllEmployees();
         return new ResponseEntity<>(employees,HttpStatus.OK);
     }
 
-    //cette méthode permet de supprimer un employ
+    //cette méthode permet de supprimer un employee
     @GetMapping(value = "/employee/{id}")
     public Optional<Employee> getEmployee(@PathVariable("id") Long id){
         return employeeService.employeeById(id);
